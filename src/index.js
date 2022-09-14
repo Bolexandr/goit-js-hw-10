@@ -32,31 +32,21 @@ function eventHandler(e){
   countriyList.innerHTML='';
   countryInfo.innerHTML='';
 console.log(e.target.value)
+
 if (e.target.value.trim().length === 0){
   countriyList.innerHTML='';
   countryInfo.innerHTML='';
   return
  }
-
- if (e.target.value.trim().length === 1){
-  Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
-  countriyList.innerHTML='';
-  countryInfo.innerHTML='';
-  return
- }
+ console.log(e.target.value)
 
 fetchCountries(e.target.value.trim())
-
 .then(res => {
-  if(res.length >=10){
-     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
-     let newRes = []
-     for (let i = 0; i<10; i+=1){
-newRes.push(res[i])
-     }
-     domElemCreater(newRes)
-  }else{
+  console.log(res)
+  if(res.length <= 10){
     domElemCreater(res)
+  }else{
+    Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
   }
 })
 .catch(rej =>{
