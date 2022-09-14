@@ -61,7 +61,7 @@ newRes.push(res[i])
 })
 .catch(rej =>{
   console.log(rej);
-Notiflix.Notify.failure("Oops, there is no country with that name12222221");
+Notiflix.Notify.failure("Oops, there is no country with that name");
 })
 
 }  ;
